@@ -4,9 +4,12 @@ const Problem = () => {
     <section className="bg-gray-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            The fundraising process is broken.
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            Founders are fed up of asking for Intros and Investors are becoming exclusive
           </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Why waste so much time in fundraising instead of spending time making your business better?
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

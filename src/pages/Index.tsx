@@ -5,7 +5,6 @@ import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
 import HowItWorks from "@/components/HowItWorks";
 import CompetitiveAdvantage from "@/components/CompetitiveAdvantage";
-import Testimonials from "@/components/Testimonials";
 import Team from "@/components/Team";
 import JoinWaitlist from "@/components/JoinWaitlist";
 import Footer from "@/components/Footer";
@@ -19,7 +18,6 @@ const Index = () => {
       <Solution />
       <HowItWorks />
       <CompetitiveAdvantage />
-      <Testimonials />
       <Team />
       <JoinWaitlist />
       <Footer />

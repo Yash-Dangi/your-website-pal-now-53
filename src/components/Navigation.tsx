@@ -6,8 +6,8 @@ const Navigation = () => {
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-gray-900">Pitchpair</h1>
+          <div className="flex-shrink-0 flex items-center">
+            <img src="/lovable-uploads/7f6532e4-be5b-48fb-b4d6-3ee8bddbe2df.png" alt="Pitchpair" className="h-8" />
           </div>
           
           <div className="hidden md:block">
