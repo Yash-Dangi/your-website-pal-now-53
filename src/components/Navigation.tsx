@@ -7,7 +7,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <img src="/lovable-uploads/7f6532e4-be5b-48fb-b4d6-3ee8bddbe2df.png" alt="Pitchpair" className="h-8" />
+            <img src="/lovable-uploads/7f6532e4-be5b-48fb-b4d6-3ee8bddbe2df.png" alt="Pitchpair" className="h-8 w-auto" />
           </div>
           
           <div className="hidden md:block">
@@ -25,7 +25,7 @@ const Navigation = () => {
                 Team
               </a>
               <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                Join Waitlist
+                Join as Founder
               </Button>
             </div>
           </div>
