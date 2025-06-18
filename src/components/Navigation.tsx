@@ -1,7 +1,10 @@
-
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
+  const handleFormRedirect = () => {
+    window.open("https://forms.gle/Toh1qPNhVgRhDCheA", "_blank");
+  };
+
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +27,7 @@ const Navigation = () => {
               <a href="#team" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
                 Team
               </a>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white" onClick={handleFormRedirect}>
                 Join as Founder
               </Button>
             </div>

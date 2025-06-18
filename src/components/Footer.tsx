@@ -10,17 +10,16 @@ const Footer = () => {
               AI-powered matchmaking platform connecting startups with their perfect investors.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Twitter
+              <a href="https://www.linkedin.com/in/abhishek-tiwari-420bb7205/" className="text-gray-400 hover:text-white transition-colors">
+                LinkedIn - Abhishek
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                LinkedIn
+              <a href="https://www.linkedin.com/in/sarveshwar-pandey-9010871b8/" className="text-gray-400 hover:text-white transition-colors">
+                LinkedIn - Sarveshwar
               </a>
             </div>
           </div>
 
           <div>
-            <img src="/lovable-uploads/7f6532e4-be5b-48fb-b4d6-3ee8bddbe2df.png" alt="Pitchpair" className="h-12 w-auto mb-4 brightness-0 invert" />
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About</a></li>
