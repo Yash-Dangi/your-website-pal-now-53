@@ -16,7 +16,7 @@ const Navigation = () => {
                 For Founders
               </a>
               <a href="#investors" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
-                For Investors
+                Join as Investor
               </a>
               <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
                 How it Works

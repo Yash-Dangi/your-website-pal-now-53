@@ -18,8 +18,8 @@ const Solution = () => {
                 <span className="text-blue-600 font-semibold">✓</span>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Rich founder profiles</h3>
-                <p className="text-gray-600">Comprehensive startup profiles with metrics, team info, and traction data.</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Data-rich startup profiles</h3>
+                <p className="text-gray-600">Comprehensive analytics-driven profiles with metrics, team info, and market data to showcase your startup's potential.</p>
               </div>
             </div>
 

@@ -7,7 +7,7 @@ const Team = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Built by Founders Who've Lived This
+            Built by IIT Roorkee Alumni
           </h2>
         </div>
 
@@ -19,7 +19,7 @@ const Team = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Abhishek Tiwari</h3>
               <p className="text-gray-600 mb-4">
-                IIT Roorkee, ex-Redseer, Turno. Community-led builder, founder of Vrindaa.
+                IIT Roorkee, ex-Redseer. Community-led builder, founder of Vrindaa.
               </p>
               <div className="flex justify-center space-x-4">
                 <a href="#" className="text-blue-600 hover:text-blue-800">LinkedIn</a>
@@ -35,7 +35,7 @@ const Team = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Sarveshwar Pandey</h3>
               <p className="text-gray-600 mb-4">
-                Tech founder, ex-Demyst. AI/Infra specialist with deep expertise in machine learning systems.
+                IIT Roorkee, ex-Demyst. AI/Infra specialist with deep expertise in machine learning systems.
               </p>
               <div className="flex justify-center space-x-4">
                 <a href="#" className="text-blue-600 hover:text-blue-800">LinkedIn</a>

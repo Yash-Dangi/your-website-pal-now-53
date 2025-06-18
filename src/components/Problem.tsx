@@ -18,10 +18,10 @@ const Problem = () => {
               <span className="text-3xl">🧊</span>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Cold outreach doesn't convert
+              Getting warm introductions is nearly impossible
             </h3>
             <p className="text-gray-600">
-              Generic pitch emails get lost in crowded inboxes. Founders waste time on misaligned investors.
+              Breaking into investor networks requires connections most founders don't have. Cold outreach feels futile when everyone wants a warm intro.
             </p>
           </div>
 
