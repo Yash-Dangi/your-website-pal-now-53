@@ -20,7 +20,7 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
-              Join Waitlist as Founder
+              Join as Founder
             </Button>
             <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3">
               Join as Investor
