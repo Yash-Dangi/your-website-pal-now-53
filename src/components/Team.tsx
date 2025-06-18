@@ -19,11 +19,10 @@ const Team = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Abhishek Tiwari</h3>
               <p className="text-gray-600 mb-4">
-                IIT Roorkee, ex-Redseer. Community-led builder, founder of Vrindaa.
+                IIT Roorkee, EIR at The Wedding Company.
               </p>
               <div className="flex justify-center space-x-4">
-                <a href="#" className="text-blue-600 hover:text-blue-800">LinkedIn</a>
-                <a href="#" className="text-blue-600 hover:text-blue-800">Twitter</a>
+                <a href="https://www.linkedin.com/in/abhishek-tiwari-420bb7205/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">LinkedIn</a>
               </div>
             </CardContent>
           </Card>
@@ -38,8 +37,7 @@ const Team = () => {
                 IIT Roorkee, ex-Demyst. AI/Infra specialist with deep expertise in machine learning systems.
               </p>
               <div className="flex justify-center space-x-4">
-                <a href="#" className="text-blue-600 hover:text-blue-800">LinkedIn</a>
-                <a href="#" className="text-blue-600 hover:text-blue-800">Twitter</a>
+                <a href="https://www.linkedin.com/in/sarveshwar-pandey-9010871b8/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">LinkedIn</a>
               </div>
             </CardContent>
           </Card>

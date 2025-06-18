@@ -23,7 +23,7 @@ const Hero = () => {
               Join Waitlist as Founder
             </Button>
             <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3">
-              Join Waitlist as Investor
+              Join as Investor
             </Button>
           </div>
         </div>
