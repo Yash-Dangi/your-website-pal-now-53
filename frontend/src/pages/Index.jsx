@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   useEffect(() => {
-    fetch("http://localhost:4000/api/website-hit", { method: "POST" });
+    fetch("https://your-website-pal-now-53.onrender.com/api/website-hit", { method: "POST" });
   }, []);
 
   return (

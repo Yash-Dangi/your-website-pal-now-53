@@ -73,7 +73,7 @@ export default function ModalForm({ open, onClose }) {
         investorTypes: form.investorTypes,
         challenge: form.challenge,
       };
-      await axios.post("http://localhost:4000/api/submit", payload);
+      await axios.post("https://your-website-pal-now-53.onrender.com/api/submit", payload);
       setSuccess(true);
       setForm({
         name: "",
