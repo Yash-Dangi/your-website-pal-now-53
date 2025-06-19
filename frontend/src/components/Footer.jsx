@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="col-span-2">
-            <img src="/lovable-uploads/7f6532e4-be5b-48fb-b4d6-3ee8bddbe2df.png" alt="Pitchpair" className="h-8 w-auto mb-4 brightness-0 invert" />
+            <img src="/lovable-uploads/7f6532e4-be5b-48fb-b4d6-3ee8bddbe2df.png" alt="Pitchpair" className="h-8 w-auto mb-4" />
             <p className="text-gray-400 mb-6 max-w-md">
               AI-powered matchmaking platform connecting startups with their perfect investors.
             </p>

@@ -15,7 +15,7 @@ const INVESTOR_TYPES = [
   "Not Yet Sure"
 ];
 
-export default function ModalForm({ open, onClose }) {
+export default function ModalForm({ open, onClose, modalClassName = "" }) {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -102,7 +102,7 @@ export default function ModalForm({ open, onClose }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 px-2 py-8">
       <div
-        className="bg-white rounded-lg shadow-lg w-full max-w-lg mx-4 p-6 relative animate-fade-in overflow-y-auto max-h-[90vh] scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-50"
+        className={`bg-white rounded-lg shadow-lg w-full max-w-lg mx-4 p-6 relative animate-fade-in overflow-y-auto max-h-[90vh] scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-50 ${modalClassName}`}
         style={{ scrollbarColor: '#93c5fd #f0f9ff', scrollbarWidth: 'thin' }}
       >
         <button
