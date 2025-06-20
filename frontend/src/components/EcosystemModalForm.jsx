@@ -1,26 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 
-const INVESTOR_TYPES = [
-  "Angel",
-  "VC",
-  "Syndicate / Scout",
-  "Family Fund",
-  "Operator Investor"
-];
-const CHEQUE_SIZES = [
-  "< $10K",
-  "$10K–$50K",
-  "$50K–$200K",
-  "$200K+"
-];
-const STAGES = [
-  "Idea",
-  "MVP",
-  "Pre-Seed",
-  "Seed",
-  "Series A"
-];
 const ECOSYSTEM_ROLES = [
   "Mentor/Advisor",
   "Incubator/Accelerator",
@@ -30,17 +10,15 @@ const ECOSYSTEM_ROLES = [
   "Other"
 ];
 
-export default function InvestorModalForm({ open, onClose, modalClassName = "" }) {
+export default function EcosystemModalForm({ open, onClose, modalClassName = "" }) {
   const [form, setForm] = useState({
-    fullName: "",
+    ecoName: "",
     email: "",
     phone: "",
-    website: "",
-    investorTypes: [],
-    chequeSize: "",
-    sectors: "",
-    stages: [],
-    anythingElse: ""
+    ecosystemRoles: [],
+    ecosystemOther: "",
+    updates: "Yes",
+    ecosystemAnything: ""
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -64,12 +42,12 @@ export default function InvestorModalForm({ open, onClose, modalClassName = "" }
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (type === "checkbox") {
-      if (name === "investorTypes" || name === "stages") {
+      if (name === "ecosystemRoles") {
         setForm((prev) => ({
           ...prev,
-          [name]: checked
-            ? [...prev[name], value]
-            : prev[name].filter((v) => v !== value)
+          ecosystemRoles: checked
+            ? [...prev.ecosystemRoles, value]
+            : prev.ecosystemRoles.filter((v) => v !== value)
         }));
       }
     } else {
@@ -82,36 +60,32 @@ export default function InvestorModalForm({ open, onClose, modalClassName = "" }
     setLoading(true);
     setError("");
     setSuccess(false);
-    if (!form.email) {
-      setError("Email is required.");
+    if (!form.ecoName || !form.email) {
+      setError("Name and Email are required.");
       setLoading(false);
       return;
     }
     try {
       const payload = {
-        type: "investor",
-        fullName: form.fullName,
+        type: "ecosystem",
+        ecoName: form.ecoName,
         email: form.email,
         phone: form.phone,
-        website: form.website,
-        investorTypes: form.investorTypes,
-        chequeSize: form.chequeSize,
-        sectors: form.sectors,
-        stages: form.stages,
-        anythingElse: form.anythingElse
+        ecosystemRoles: form.ecosystemRoles,
+        ecosystemOther: form.ecosystemOther,
+        updates: form.updates,
+        ecosystemAnything: form.ecosystemAnything
       };
       await axios.post("http://localhost:8081/api/submit", payload);
       setSuccess(true);
       setForm({
-        fullName: "",
+        ecoName: "",
         email: "",
         phone: "",
-        website: "",
-        investorTypes: [],
-        chequeSize: "",
-        sectors: "",
-        stages: [],
-        anythingElse: ""
+        ecosystemRoles: [],
+        ecosystemOther: "",
+        updates: "Yes",
+        ecosystemAnything: ""
       });
       setTimeout(() => {
         setSuccess(false);
@@ -130,7 +104,7 @@ export default function InvestorModalForm({ open, onClose, modalClassName = "" }
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 px-2 py-8">
       <div
         ref={modalRef}
-        className={`bg-white rounded-lg shadow-lg w-full max-w-lg mx-4 p-6 relative animate-fade-in overflow-y-auto max-h-[90vh] scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-50 ${modalClassName}`}
+        className={`bg-white rounded-lg shadow-lg w-full max-w-lg mx-4 p-6 relative animate-fade-in overflow-y-auto max-h-[90vh] scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-50 text-gray-900 ${modalClassName}`}
         style={{ scrollbarColor: '#93c5fd #f0f9ff', scrollbarWidth: 'thin' }}
       >
         <button
@@ -140,14 +114,14 @@ export default function InvestorModalForm({ open, onClose, modalClassName = "" }
         >
           ×
         </button>
-        <h2 className="text-2xl font-bold mb-4 text-center">Investor & Ecosystem Contributor Form</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Ecosystem Enabler Form</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block font-medium mb-1">Full Name</label>
+            <label className="block font-medium mb-1">Name <span className="text-red-500">*</span></label>
             <input
               type="text"
-              name="fullName"
-              value={form.fullName}
+              name="ecoName"
+              value={form.ecoName}
               onChange={handleChange}
               required
               className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -175,81 +149,56 @@ export default function InvestorModalForm({ open, onClose, modalClassName = "" }
             />
           </div>
           <div>
-            <label className="block font-medium mb-1">LinkedIn or Website</label>
-            <input
-              type="text"
-              name="website"
-              value={form.website}
-              onChange={handleChange}
-              className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block font-medium mb-1">What kind of investor are you?</label>
+            <label className="block font-medium mb-1">How are you involved in the startup ecosystem?</label>
             <div className="flex flex-wrap gap-4">
-              {INVESTOR_TYPES.map((type) => (
-                <label key={type} className="flex items-center gap-1">
+              {ECOSYSTEM_ROLES.map((role) => (
+                <label key={role} className="flex items-center gap-1">
                   <input
                     type="checkbox"
-                    name="investorTypes"
-                    value={type}
-                    checked={form.investorTypes.includes(type)}
+                    name="ecosystemRoles"
+                    value={role}
+                    checked={form.ecosystemRoles.includes(role)}
                     onChange={handleChange}
                     className="accent-blue-600"
                   />
-                  {type}
+                  {role}
+                </label>
+              ))}
+            </div>
+            {form.ecosystemRoles.includes("Other") && (
+              <input
+                type="text"
+                name="ecosystemOther"
+                value={form.ecosystemOther}
+                onChange={handleChange}
+                placeholder="Please specify"
+                className="w-full border rounded px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            )}
+          </div>
+          <div>
+            <label className="block font-medium mb-1">Would you like to receive updates, opportunities, or collaborate with us in the future?</label>
+            <div className="flex gap-4">
+              {['Yes', 'No'].map((val) => (
+                <label key={val} className="flex items-center gap-1">
+                  <input
+                    type="radio"
+                    name="updates"
+                    value={val}
+                    checked={form.updates === val}
+                    onChange={handleChange}
+                    className="accent-blue-600"
+                  />
+                  {val}
                 </label>
               ))}
             </div>
           </div>
           <div>
-            <label className="block font-medium mb-1">Typical Cheque Size</label>
-            <select
-              name="chequeSize"
-              value={form.chequeSize}
-              onChange={handleChange}
-              className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="">Select...</option>
-              {CHEQUE_SIZES.map((size) => (
-                <option key={size} value={size}>{size}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className="block font-medium mb-1">Sectors you're most interested in</label>
-            <input
-              type="text"
-              name="sectors"
-              value={form.sectors}
-              onChange={handleChange}
-              placeholder="e.g. FinTech, SaaS, HealthTech"
-              className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block font-medium mb-1">Preferred startup stage(s)</label>
-            <div className="flex flex-wrap gap-4">
-              {STAGES.map((stage) => (
-                <label key={stage} className="flex items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="stages"
-                    value={stage}
-                    checked={form.stages.includes(stage)}
-                    onChange={handleChange}
-                    className="accent-blue-600"
-                  />
-                  {stage}
-                </label>
-              ))}
-            </div>
-          </div>
-          <div>
-            <label className="block font-medium mb-1">Anything else you want to let us know or ask?</label>
+            <label className="block font-medium mb-1">Anything you'd like to share or ask us?</label>
             <textarea
-              name="anythingElse"
-              value={form.anythingElse}
+              name="ecosystemAnything"
+              value={form.ecosystemAnything}
               onChange={handleChange}
               rows={2}
               className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"

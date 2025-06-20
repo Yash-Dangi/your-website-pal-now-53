@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ModalForm from "@/components/ModalForm";
 import InvestorModalForm from "@/components/InvestorModalForm";
+import EcosystemModalForm from "@/components/EcosystemModalForm";
 
 const Hero = () => {
   const [founderModalOpen, setFounderModalOpen] = useState(false);
   const [investorModalOpen, setInvestorModalOpen] = useState(false);
+  const [ecosystemModalOpen, setEcosystemModalOpen] = useState(false);
 
   return (
     <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
@@ -29,6 +31,9 @@ const Hero = () => {
             </Button>
             <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3" onClick={() => setInvestorModalOpen(true)}>
               Join as Investor
+            </Button>
+            <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3" onClick={() => setEcosystemModalOpen(true)}>
+              Join as Ecosystem Enabler
             </Button>
           </div>
         </div>
@@ -75,6 +80,7 @@ const Hero = () => {
       </div>
       <ModalForm open={founderModalOpen} onClose={() => setFounderModalOpen(false)} />
       <InvestorModalForm open={investorModalOpen} onClose={() => setInvestorModalOpen(false)} />
+      <EcosystemModalForm open={ecosystemModalOpen} onClose={() => setEcosystemModalOpen(false)} />
     </section>
   );
 };

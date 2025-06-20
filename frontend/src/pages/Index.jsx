@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   // The backend will capture the user's IP and location, no changes needed here.
   useEffect(() => {
-    fetch("https://your-website-pal-now-53.onrender.com/api/website-hit", { method: "POST" });
+    fetch("http://localhost:8081/api/website-hit", { method: "POST" });
   }, []);
 
   return (

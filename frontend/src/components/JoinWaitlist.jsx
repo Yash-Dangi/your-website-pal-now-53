@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ModalForm from "@/components/ModalForm";
 import InvestorModalForm from "@/components/InvestorModalForm";
+import EcosystemModalForm from "@/components/EcosystemModalForm";
 
 const JoinWaitlist = () => {
   const [founderModalOpen, setFounderModalOpen] = useState(false);
   const [investorModalOpen, setInvestorModalOpen] = useState(false);
+  const [ecosystemModalOpen, setEcosystemModalOpen] = useState(false);
 
   return (
     <section className="bg-gradient-to-br from-blue-600 to-indigo-700 py-20 text-white">
@@ -32,6 +34,14 @@ const JoinWaitlist = () => {
           >
             Join as Investor
           </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="w-full max-w-xs border-white text-blue-600 bg-white hover:bg-gray-100 py-3 text-lg font-semibold"
+            onClick={() => setEcosystemModalOpen(true)}
+          >
+            Join as Ecosystem Enabler
+          </Button>
         </div>
         <p className="text-blue-200 text-sm mt-8">
           No spam, just updates on our progress and early access.
@@ -39,6 +49,7 @@ const JoinWaitlist = () => {
       </div>
       <ModalForm open={founderModalOpen} onClose={() => setFounderModalOpen(false)} modalClassName="text-gray-900" />
       <InvestorModalForm open={investorModalOpen} onClose={() => setInvestorModalOpen(false)} modalClassName="text-gray-900" />
+      <EcosystemModalForm open={ecosystemModalOpen} onClose={() => setEcosystemModalOpen(false)} modalClassName="text-gray-900" />
     </section>
   );
 };
