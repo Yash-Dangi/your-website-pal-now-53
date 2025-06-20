@@ -25,7 +25,7 @@ db.once('open', () => {
 // Mongoose Schema (accommodates both founder and investor fields)
 const SubmissionSchema = new mongoose.Schema({
   // Common
-  type: { type: String, required: true }, // 'founder' or 'investor'
+  type: { type: String, required: true }, // 'founder', 'investor', or 'ecosystem'
   submittedAt: { type: Date, default: Date.now },
 
   // Founder fields
@@ -41,11 +41,11 @@ const SubmissionSchema = new mongoose.Schema({
 
   // Investor fields
   fullName: String,
-  email: String,
-  phone: String,
   chequeSize: String,
   stages: [String],
   anythingElse: String,
+
+  // Ecosystem fields
   ecoName: String,
   ecosystemRoles: [String],
   ecosystemOther: String,
@@ -67,8 +67,16 @@ app.post('/api/submit', async (req, res) => {
     if (!req.body.type) {
       return res.status(400).json({ error: 'Missing type field' });
     }
-    if (!req.body.email) {
+    if (req.body.type === 'founder' && !req.body.email) {
       return res.status(400).json({ error: 'Missing email field' });
+    }
+    if (req.body.type === 'investor' && !req.body.email) {
+      return res.status(400).json({ error: 'Missing email field' });
+    }
+    if (req.body.type === 'ecosystem') {
+      if (!req.body.ecoName || !req.body.email) {
+        return res.status(400).json({ error: 'Missing ecoName or email for ecosystem enabler' });
+      }
     }
     const submission = new Submission(req.body);
     await submission.save();
