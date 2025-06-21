@@ -140,7 +140,7 @@ export default function InvestorModalForm({ open, onClose, modalClassName = "" }
         >
           ×
         </button>
-        <h2 className="text-2xl font-bold mb-4 text-center">Investor & Ecosystem Contributor Form</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Investor Form</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="block font-medium mb-1">Full Name</label>

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ModalForm from "@/components/ModalForm";
+import InvestorModalForm from "@/components/InvestorModalForm";
 
 const Navigation = () => {
-  const [founderModalOpen, setFounderModalOpen] = useState(false);
+  const [investorModalOpen, setInvestorModalOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
@@ -15,26 +16,20 @@ const Navigation = () => {
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#founders" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
-                For Founders
-              </a>
-              <a href="#investors" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
-                Join as Investor
-              </a>
               <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
                 How it Works
               </a>
               <a href="#team" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
                 Team
               </a>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white" onClick={() => setFounderModalOpen(true)}>
-                Join as Founder
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white" onClick={() => setInvestorModalOpen(true)}>
+                Join as Investor
               </Button>
             </div>
           </div>
         </div>
       </div>
-      <ModalForm open={founderModalOpen} onClose={() => setFounderModalOpen(false)} />
+      <InvestorModalForm open={investorModalOpen} onClose={() => setInvestorModalOpen(false)} />
     </nav>
   );
 };
