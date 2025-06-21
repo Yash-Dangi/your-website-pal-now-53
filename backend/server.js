@@ -4,7 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8081;
 
 app.use(cors());
 app.use(express.json());
@@ -107,7 +107,54 @@ app.post('/api/website-hit', async (req, res) => {
     res.status(500).json({ error: 'Failed to update website hits' });
   }
 });
+app.get('/form-responses', async (req, res) => {
+  try {
+    const responses = await Submission.find({});
 
+    // Generate HTML table header
+    const headers = [
+      'Full Name', 'Email', 'Phone', 'Website', 'Sectors',
+      'Investor Types', 'Cheque Size', 'Stages',
+      'Anything Else', 'Submitted At'
+    ];
+
+    // Start table HTML
+    let html = '<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; font-family: sans-serif;">';
+    html += '<thead><tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr></thead>';
+    html += '<tbody>';
+
+    // Loop through each document and render a table row
+    responses.forEach(r => {
+      html += '<tr>';
+      html += `<td>${r.fullName || ''}</td>`;
+      html += `<td>${r.email || ''}</td>`;
+      html += `<td>${r.phone || ''}</td>`;
+      html += `<td>${r.website || ''}</td>`;
+      html += `<td>${r.sectors || ''}</td>`;
+      html += `<td>${(r.investorTypes || []).join(', ')}</td>`;
+      html += `<td>${r.chequeSize || ''}</td>`;
+      html += `<td>${(r.stages || []).join(', ')}</td>`;
+      html += `<td>${r.anythingElse || ''}</td>`;
+      html += `<td>${new Date(r.submittedAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</td>`;
+      html += '</tr>';
+    });
+
+    html += '</tbody></table>';
+
+    // Send as HTML response
+    res.send(`
+      <html>
+        <head><title>Form Responses</title></head>
+        <body>
+          <h2>Form Responses</h2>
+          ${html}
+        </body>
+      </html>
+    `);
+  } catch (err) {
+    res.status(500).send('<p>Failed to fetch form responses</p>');
+  }
+});
 app.get('/', (req, res) => {
   res.send('Backend server is running');
 });
